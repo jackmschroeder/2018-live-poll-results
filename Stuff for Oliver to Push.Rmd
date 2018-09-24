@@ -14,6 +14,11 @@ library(dplyr)
 # Oliver Cordeiro
 
 ```{r}
-x <- read.csv("data/elections-poll-me02-1.csv")
+x <- read_csv("data/elections-poll-me02-1.csv")
+
+x %>% 
+  select(response, educ) %>% 
+  group_by(educ) %>% 
+  count(response)
 ```
 

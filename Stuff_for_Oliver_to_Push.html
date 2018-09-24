@@ -130,7 +130,42 @@ $(document).ready(function () {
 
 <div id="oliver-cordeiro" class="section level1">
 <h1>Oliver Cordeiro</h1>
-<pre class="r"><code>x &lt;- read.csv(&quot;data/elections-poll-me02-1.csv&quot;)</code></pre>
+<pre class="r"><code>x &lt;- read_csv(&quot;data/elections-poll-me02-1.csv&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   turnout_scale = col_double(),
+##   turnout_score = col_double(),
+##   w_LV = col_double(),
+##   w_RV = col_double(),
+##   final_weight = col_double()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre class="r"><code>x %&gt;% 
+  select(response, educ) %&gt;% 
+  group_by(educ) %&gt;% 
+  count(response)</code></pre>
+<pre><code>## # A tibble: 17 x 3
+## # Groups:   educ [6]
+##    educ                            response     n
+##    &lt;chr&gt;                           &lt;chr&gt;    &lt;int&gt;
+##  1 [DO NOT READ] Refused           Rep          3
+##  2 [DO NOT READ] Refused           Und          1
+##  3 Bachelors' degree               Dem         59
+##  4 Bachelors' degree               Rep         55
+##  5 Bachelors' degree               Und         10
+##  6 Grade school                    Dem          5
+##  7 Grade school                    Rep          5
+##  8 Grade school                    Und          1
+##  9 Graduate or Professional Degree Dem         51
+## 10 Graduate or Professional Degree Rep         24
+## 11 Graduate or Professional Degree Und          7
+## 12 High school                     Dem         48
+## 13 High school                     Rep         53
+## 14 High school                     Und         20
+## 15 Some college or trade school    Dem         61
+## 16 Some college or trade school    Rep         84
+## 17 Some college or trade school    Und         19</code></pre>
 </div>
 
 
